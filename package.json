@@ -1,7 +1,9 @@
 {
-  "name": "spotify-music-search-app",
+  "homepage": "http://sunny7899.github.io/music-application",
+  "name": "music-search-app",
   "version": "0.1.0",
   "private": true,
+
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
