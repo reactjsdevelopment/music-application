@@ -1,5 +1,6 @@
 # Music Data Application 
 
+deployed version link- http://sunny7899.github.io/music-application
 
 Use Shazam API to gather music data. https://rapidapi.com/apidojo/api/shazam
 Use Genius API to gather song details and lyrics. https://rapidapi.com/brianiswu/api/genius/
