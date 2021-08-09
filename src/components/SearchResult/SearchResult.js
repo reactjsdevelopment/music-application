@@ -3,8 +3,8 @@ import _ from 'lodash';
 import { Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 
-import ArtistsList from './ArtistsList';
-import PlayList from './PlayList';
+import ArtistsList from '../ArtistsList/ArtistsList';
+import PlayList from '../PlayList/PlayList';
 
 const SearchResult = (props) => {
 
@@ -17,24 +17,14 @@ const SearchResult = (props) => {
   } = props;
   const {  artists, playlist } = result;
 
-let newCategory = '';
-if (selectedCategory == 'tracks') {
-  newCategory = 'playlist';
-}
+// let newCategory = '';
+// if (selectedCategory == 'tracks') {
+//   newCategory = 'playlist';
+// }
   return (
     <React.Fragment>
       <div className="search-buttons">
-        {!_.isEmpty(artists.hits) && (
-          <button
-            className={`${
-              selectedCategory === 'tracks' ? 'btn active' : 'btn'
-            }`}
-            onClick={() => setCategory('tracks')}
-          >
-            Artists
-          </button>
-        )}
-        {!_.isEmpty(playlist.hits) && (
+      {!_.isEmpty(playlist.hits) && (
           <button
             className={`${
               selectedCategory === 'playlist' ? 'btn active' : 'btn'
@@ -44,16 +34,27 @@ if (selectedCategory == 'tracks') {
             PlayLists
           </button>
         )}
+        {!_.isEmpty(artists.hits) && (
+          <button
+            className={`${
+              selectedCategory === 'artists' ? 'btn active' : 'btn'
+            }`}
+            onClick={() => setCategory('artists')}
+          >
+            Artists
+          </button>
+        )}
+
       </div>
-      <div className={`${selectedCategory === 'playlist' ? '' : 'hide'}`}>
+      <div className={`${selectedCategory === 'artists' ? '' : 'hide'}`}>
         {artists && <ArtistsList artists={artists} />}
       </div>
-      <div className={`${selectedCategory === 'tracks' ? '' : 'hide'}`}>
+      <div className={`${selectedCategory === 'playlist' ? '' : 'hide'}`}>
         {playlist && <PlayList playlist={playlist} />}
       </div>
-      {!_.isEmpty(result[newCategory]) &&
-        !_.isEmpty(result[newCategory]) && (
-          <div className="load-more" onClick={() => loadMore(newCategory)}>
+      {!_.isEmpty(result[selectedCategory]) &&
+        !_.isEmpty(result[selectedCategory]) && (
+          <div className="load-more" onClick={() => loadMore(selectedCategory)}>
             <Button variant="info" type="button">
               Load More
             </Button>

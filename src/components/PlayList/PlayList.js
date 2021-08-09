@@ -1,8 +1,7 @@
 import React, { useState }  from 'react';
 import { Card } from 'react-bootstrap';
 import _ from 'lodash';
-import music from '../images/music.jpeg';
-import SongDetail from './SongDetail';
+import SongDetail from '../SongDetail/SongDetail';
 
 
 const PlayList = ({ playlist }) => {

@@ -1,11 +1,11 @@
 import React from 'react';
-import Player from './Player';
+import Player from '../Player/Player';
 const SongDetail = (props) => {
 
   const {isDataSet} = props;
   return (
   <div>
- <h1 className="main-heading">Song Detail</h1>
+ <h1 className="main-heading">Song Details</h1>
   <p>
       {isDataSet.track.title}
   </p>

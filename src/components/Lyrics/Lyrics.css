@@ -1,0 +1,19 @@
+
+  
+  .modal {
+    width: 400px;
+    height: 500px;
+    z-index: 1999;
+  }
+  
+  .lyricsSection {
+    height: 100%;
+    margin: 6px;
+  }
+  
+  .noMatch {
+    color: #dde26a ;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+  }

@@ -10,7 +10,7 @@ const playlistReducer = (state = {}, action) => {
       return {
         ...state,
         next: playlists.hits,
-        items: [...state.hits, ...playlists.hits]
+        hits: [...state.hits, ...playlists.hits]
       };
     default:
       return state;

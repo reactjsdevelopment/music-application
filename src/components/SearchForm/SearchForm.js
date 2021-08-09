@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import SongDetail from './SongDetail';
-import SuggestionsListComponent from './autocomplete';
+
+import SuggestionsListComponent from '../Autocomplete/autocomplete';
 
 const SearchForm = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(true);
+
 
 
   const handleInputChange = (event) => {
     const searchTerm = event.target.value;
     setSearchTerm(searchTerm);
+    setShowSuggestions(true)
     props.handleSuggestion(searchTerm);
   };
 
@@ -19,6 +22,7 @@ const SearchForm = (props) => {
 
     if (searchTerm.trim() !== '') {
       setErrorMsg('');
+      setShowSuggestions(false)
       props.handleSearch(searchTerm);
     } else {
       setErrorMsg('Please enter a search term.');
@@ -42,7 +46,7 @@ const SearchForm = (props) => {
             onChange={handleInputChange}
             autoComplete="off"
           />
-            <SuggestionsListComponent props={props}/>
+            {showSuggestions && <SuggestionsListComponent props={props}/>}
         </Form.Group>
         <Button variant="info" type="submit">
           Search

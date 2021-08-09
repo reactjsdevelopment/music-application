@@ -4,18 +4,23 @@ import {
   initiateGetResult,
   
   initiateLoadMorePlaylist,
-  initiateLoadMoreArtists, initiateSuggestion
-} from '../actions/result';
+} from '../../actions/playListAction';
+import {
+  initiateLoadMoreArtists,
+} from '../../actions/artistActions';
+import {
+ initiateSuggestion
+} from '../../actions/suggestionAction';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import SearchResult from './SearchResult';
-import SearchForm from './SearchForm';
-import Header from './Header';
-import Loader from './Loader';
+import SearchResult from '../SearchResult/SearchResult';
+import SearchForm from '../SearchForm/SearchForm';
+import Header from '../Header/Header';
+import Loader from '../Loader/Loader';
 
 const Dashboard = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('tracks');
+  const [selectedCategory, setSelectedCategory] = useState('playlist');
   const [selectedSuggestions, setSelectedSuggestions] = useState('hints');
   const [searchItem, setSearchItem] = useState('');
 
@@ -26,21 +31,19 @@ const Dashboard = (props) => {
       setIsLoading(true);
       props.dispatch(initiateGetResult(searchTerm)).then(() => {
         setIsLoading(false);
-        setSelectedCategory('tracks');
+        setSelectedCategory('playlist');
       });
   };
 
   const handleSuggestion = (searchTerm) => {
-    // setIsLoading(true);
     props.dispatch(initiateSuggestion(searchTerm)).then(() => {
-      // setIsLoading(false);
       setSelectedSuggestions('hints');
     });
 };
 
   const loadMore = async (type) => {
     
-      const { dispatch, albums, artists, playlist } = props;
+      const { dispatch } = props;
       setIsLoading(true);
       const API_URL = `https://shazam.p.rapidapi.com/search?term=${encodeURIComponent(
         searchItem
@@ -87,7 +90,6 @@ const Dashboard = (props) => {
 const mapStateToProps = (state) => {
 
   return {
-    albums: state.albums,
     artists: state.artists,
     playlist: state.playlist,
     suggestions: state.suggestions
