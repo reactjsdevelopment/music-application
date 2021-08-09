@@ -1,5 +1,7 @@
 import React from 'react';
 import Player from '../Player/Player';
+import LyricsComponent from '../Lyrics/Lyrics';
+
 const SongDetail = (props) => {
 
   const {isDataSet} = props;
@@ -12,6 +14,7 @@ const SongDetail = (props) => {
 
   <p>
       song lyrics
+      <LyricsComponent/>
   </p>
 
 <Player url = {isDataSet.track.hub.actions[1].uri}/>
