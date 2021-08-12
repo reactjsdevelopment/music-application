@@ -23,6 +23,8 @@ const Dashboard = (props) => {
   const [selectedCategory, setSelectedCategory] = useState('playlist');
   const [selectedSuggestions, setSelectedSuggestions] = useState('hints');
   const [searchItem, setSearchItem] = useState('');
+  const [count, setCount] = useState(1);
+
 
 
 
@@ -41,13 +43,17 @@ const Dashboard = (props) => {
     });
 };
 
+  const incrementCount = () => {
+    setCount(count + 1)
+  }
+
   const loadMore = async (type) => {
-    
+      incrementCount()
       const { dispatch } = props;
       setIsLoading(true);
       const API_URL = `https://shazam.p.rapidapi.com/search?term=${encodeURIComponent(
         searchItem
-      )}&locale=en-US&offset=1&limit=5`;
+      )}&locale=en-US&offset=${count}&limit=5`;
       switch (type) {
         case 'artists':
           await dispatch(initiateLoadMoreArtists(API_URL));
