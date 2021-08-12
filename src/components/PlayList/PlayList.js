@@ -2,6 +2,7 @@ import React, { useState }  from 'react';
 import { Card } from 'react-bootstrap';
 import _ from 'lodash';
 import SongDetail from '../SongDetail/SongDetail';
+import PropTypes from "prop-types";
 
 
 const PlayList = ({ playlist }) => {
@@ -43,6 +44,10 @@ const PlayList = ({ playlist }) => {
       )}
     </div>
   );
+};
+
+PlayList.propTypes = {
+  playlist: PropTypes.object
 };
 
 export default PlayList;

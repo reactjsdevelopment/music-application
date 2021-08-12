@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-
+import PropTypes from "prop-types";
 import SuggestionsListComponent from '../Autocomplete/autocomplete';
 
 const SearchForm = (props) => {
@@ -57,6 +57,10 @@ const SearchForm = (props) => {
 
     </div>
   );
+};
+SearchForm.propTypes = {
+  handleInputChange: PropTypes.func,
+  handleSearch:PropTypes.func
 };
 
 export default SearchForm;

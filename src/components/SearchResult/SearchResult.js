@@ -17,10 +17,6 @@ const SearchResult = (props) => {
   } = props;
   const {  artists, playlist } = result;
 
-// let newCategory = '';
-// if (selectedCategory == 'tracks') {
-//   newCategory = 'playlist';
-// }
   return (
     <React.Fragment>
       <div className="search-buttons">
