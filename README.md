@@ -34,15 +34,13 @@ Developed Music Application with features like-
 ### Packages used
 -   "redux": "4.0.5",
 -   "redux-thunk": "2.3.0"
+- for apis used axios
+- lodash
 
 ### Useful Links
 - [Use ShaZam API to gather music data](https://rapidapi.com/apidojo/api/shazam)
 - [Use Genius API to gather song details and lyrics](https://rapidapi.com/brianiswu/api/genius/)
 
-for apis used axios
-redux-thunk used
-lodash usage
-useeffect scenerios
 ## Subscribe and Stay Updated!
 
 Don't miss out on new videos! Subscribe to my channel and hit the notification bell 🔔 to receive updates whenever I upload fresh content. Let's learn, laugh, and explore together!
