@@ -2,7 +2,8 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import _ from 'lodash';
 import PropTypes from "prop-types";
-import music from '../../images/music.jpeg';
+// import {music} from '.././images/music.jpeg';
+
 const ArtistsList = ({ artists }) => {
   return (
     <React.Fragment>
@@ -26,7 +27,7 @@ const ArtistsList = ({ artists }) => {
                         alt=""
                       />
                     ) : (
-                      <img src={music} alt="" />
+                      <img src={'.././images/music.jpeg'} alt="" />
                     )}
                   </a>
                   <Card.Body>
