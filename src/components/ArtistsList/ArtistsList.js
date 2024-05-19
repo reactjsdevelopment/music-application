@@ -4,6 +4,17 @@ import _ from 'lodash';
 import PropTypes from "prop-types";
 // import {music} from '.././images/music.jpeg';
 
+/**
+ * Component for showing details of the user.
+ *
+ * @component
+ * @example
+ * const age = 21
+ * const name = 'Jitendra Nirnejak'
+ * return (
+ *   <User age={age} name={name} />
+ * )
+ */
 const ArtistsList = ({ artists }) => {
   return (
     <React.Fragment>
