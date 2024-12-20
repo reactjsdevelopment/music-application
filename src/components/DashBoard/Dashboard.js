@@ -12,11 +12,12 @@ import {
  initiateSuggestion
 } from '../../actions/suggestionAction';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import SearchResult from '../SearchResult/SearchResult';
 import SearchForm from '../SearchForm/SearchForm';
 import Header from '../Header/Header';
 import Loader from '../Loader/Loader';
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-20BKV0X36F'); //Unique Google Analytics tracking number
 
 const Dashboard = (props) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -73,6 +74,20 @@ const Dashboard = (props) => {
   const {  artists, playlist, suggestions } = props;
   const result = {  artists, playlist, suggestions };
 
+  function fireTracking() {
+    ReactGA.pageview(window.location.hash);
+}
+
+function handleClick() {
+  ReactGA.event({
+      category: 'Navigation',
+      action: 'Clicked Link',
+  });
+}
+<Router onUpdate={fireTracking} history={hashHistory}>
+    ...
+</Router>
+
   return (
     <React.Fragment>
       {(
@@ -87,6 +102,7 @@ const Dashboard = (props) => {
             selectedCategory={selectedCategory}
          
           />
+               <a onClick={()=>{this.handleClick()}}>Link</a>
         </div>
       ) }
     </React.Fragment>
