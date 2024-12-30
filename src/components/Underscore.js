@@ -1,3 +1,11 @@
+// JavaScript library Underscore.js. This library used for functional programming. It provides functional utilities for a variety of use cases that we as developers, may come across when handling a web project. We can use this with collections, arrays, object, functions. There is another library that we can use which is Lodash. it also provides Utility Functions. it has different methods like map, pluck, chain, find, extend, bind.
+
+// These functions will help a lot in programming. It will optimize your code. It makes code simpler to read.
+
+// >npm i underscore
+
+// You could consider rolling the underscore library into your environment. It's useful for many things, including its memoize function. Memoizes a given function by caching the computed result. Useful for speeding up slow-running computations. If passed an optional hash function, it will be used to compute the hash key for storing the result, based on the arguments to the original function. The default hash function just uses the first argument to the memoized function as the key.
+
 import * as _ from 'underscore';
 
 var employeesCollection = [
@@ -77,7 +85,7 @@ name: employee.name, designation: employee.designation
    //  getStatement = _.bind(getStatement, employee);
        return getStatement();
    }
- }
+ 
 
  var fibonacci = _.memoize(function(n) {
     return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
